@@ -264,6 +264,153 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="/2017/07/24/Vue入门项目搭建笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xiaojia001">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/ershao.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小甲的神秘空间">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/24/Vue入门项目搭建笔记/" itemprop="url">Vue入门项目搭建笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-24T21:33:01+08:00">
+                2017-07-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/日记/" itemprop="url" rel="index">
+                    <span itemprop="name">日记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h1><p><a href="https://cn.vuejs.org/" target="_blank" rel="external">vue</a> webpack <a href="https://router.vuejs.org/zh-cn/" target="_blank" rel="external">vue-resource</a> vue-route <a href="http://element.eleme.io" target="_blank" rel="external">element-ui</a></p>
+<p><img src="https://cn.vuejs.org/images/logo.png" alt="VUE"></p>
+<hr>
+<h2 id="1-前端"><a href="#1-前端" class="headerlink" title="1.前端"></a>1.前端</h2><h3 id="安装Vue"><a href="#安装Vue" class="headerlink" title="安装Vue"></a>安装Vue</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install vue@2.1.6</div></pre></td></tr></table></figure>
+<h3 id="全局安装-vue-cli"><a href="#全局安装-vue-cli" class="headerlink" title="全局安装 vue-cli"></a>全局安装 vue-cli</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --global vue-cli</div></pre></td></tr></table></figure>
+<h3 id="创建一个基于-webpack-模板的新项目my-project"><a href="#创建一个基于-webpack-模板的新项目my-project" class="headerlink" title="创建一个基于 webpack 模板的新项目my-project"></a>创建一个基于 webpack 模板的新项目my-project</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vue init webpack my-project (安装vue-route)</div></pre></td></tr></table></figure>
+<h4 id="进入项目目录"><a href="#进入项目目录" class="headerlink" title="进入项目目录"></a>进入项目目录</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> my-project</div></pre></td></tr></table></figure>
+<h4 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install</div></pre></td></tr></table></figure>
+<h4 id="运行项目"><a href="#运行项目" class="headerlink" title="运行项目"></a>运行项目</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run dev</div></pre></td></tr></table></figure>
+<h3 id="安装vue-resource-elemetens-fontawesome-momentjs-less-以及-less-loder"><a href="#安装vue-resource-elemetens-fontawesome-momentjs-less-以及-less-loder" class="headerlink" title="安装vue-resource elemetens fontawesome momentjs  less 以及 less-loder"></a>安装vue-resource elemetens fontawesome momentjs  less 以及 less-loder</h3><hr>
+<h2 id="2-服务端"><a href="#2-服务端" class="headerlink" title="2.服务端"></a>2.服务端</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install express mysql body-parser;</div></pre></td></tr></table></figure>
+<h3 id="修改静态文件入口以及后端服务跨域设置"><a href="#修改静态文件入口以及后端服务跨域设置" class="headerlink" title="修改静态文件入口以及后端服务跨域设置"></a>修改静态文件入口以及后端服务跨域设置</h3><p>(assetsPublicPath 不能动,否则会报错cannot get)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">assetsSubDirectory: <span class="string">'static'</span>,</div><div class="line">    assetsPublicPath: <span class="string">'/'</span>,</div><div class="line">    proxyTable: &#123;</div><div class="line">    <span class="string">'/api'</span>: &#123;</div><div class="line">        target: <span class="string">'http://localhost:3000/api/'</span>,</div><div class="line">        changeOrigin: <span class="literal">true</span>,</div><div class="line">        pathRewrite: &#123;</div><div class="line">            <span class="string">'^/api'</span>: <span class="string">''</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>第一次用markdown，暂时就这样吧orz。。。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="/2017/07/24/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -421,14 +568,32 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
           
 
           
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
           
 
         </nav>

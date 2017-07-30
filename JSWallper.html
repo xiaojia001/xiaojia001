@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style type="text/css">		
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    #img-container{
+    	width: 1000px;
+    	margin: 0 auto;
+    }
+    .img-row {
+      margin-bottom: 0;
+      display: flex;
+      justify-content: space-between;
+    }
+
+
+	</style>
+</head>
+<body>
+	<div id="img-container">
+		
+	</div>
+<script type="text/javascript">
+	function wallper(element){
+		this.el=element;
+		this.baseHeight=100;
+		this.rowList = [];
+		//this.loadImg();
+	}
+	wallper.prototype={
+	getImgUrls: function(num) {
+	    var color, width, height, urls = [];
+	    for (var i = 0; i < num; i++) {
+	      color = Math.random().toString(16).substring(2, 8);
+	      width = Math.floor(Math.random() * 100 + 50);
+	      height = Math.floor(Math.random() * 30 + 50);
+	      urls.push(`http://placehold.it/${width}x${height}/${color}/fff`);
+	    }
+	    return urls;
+	 },
+	 loadImg:function(){
+	 	var _this=this;
+	 	var imgUrls = this.getImgUrls(100);
+	 	imgUrls.forEach((item,index)=>{
+	 		var img = new Image()
+	 		img.src=item;
+	 		img.onload = function(){
+	        var originWidth = img.width,
+	            originHeight = img.height,
+	            ratio = originWidth/originHeight;
+	        var imgInfo = {
+	          target: img,
+	          width: _this.baseHeight*ratio,
+	          height: _this.baseHeight,
+	          ratio: ratio
+	        };
+	       _this.render(imgInfo);
+	      }
+	 	})
+	 },
+	 render:function(imgInfo){
+	 	var _this = this;
+    	var rowList = this.rowList,
+        rowWidth = 0,
+        rowHeight = 0,
+        clientWidth = this.el.clientWidth;
+        lastImgInfo = imgInfo;
+        //console.log(clientWidth);
+        this.rowList.push(imgInfo);
+        rowList.forEach((item,index)=>{
+        	rowWidth += item.width;
+      if(rowWidth  > clientWidth ){
+	        rowList.pop();
+	        rowWidth = rowWidth - lastImgInfo.width;
+	        rowHeight = parseFloat(clientWidth * _this.baseHeight / rowWidth);
+	        _this.createRow(rowHeight);
+	        _this.rowList = [];
+	        _this.rowList.push(lastImgInfo);
+	      }
+        })
+	 },
+	 createRow:function(rowHeight){
+	 	var rowct = document.createElement("div");
+	 	rowct.classList.add("img-row");
+	 	this.rowList.forEach((item,index)=>{
+	 		var imgct = document.createElement("div");
+	 		imgct.classList.add("img-box")
+	 		var img = item.target;
+	 		img.height = rowHeight-1;
+	 		imgct.appendChild(img);
+	 		rowct.appendChild(imgct);
+	 	})
+	 	this.el.appendChild(rowct);
+	 }
+	}
+	var wallpers = new wallper(document.getElementById("img-container"));
+	wallpers.loadImg();
+</script>
+</body>
+</html>
